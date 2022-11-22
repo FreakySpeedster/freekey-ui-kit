@@ -1,0 +1,11 @@
+:root {
+    --background: #fff;
+    --primaryBtnColor: #925FF0;
+    --primaryBtnHoverColor: #A87FF3;
+    --primaryBtnDisabledColor: #827994;
+    --primaryBtnPressed: #5E3A9E;
+    --primaryBtnColor-dark: #292929;
+    --primaryBtnHoverColor-dark: #646464;
+    --primaryBtnPressed-dark: #0F0324;
+
+}

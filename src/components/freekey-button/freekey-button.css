@@ -1,0 +1,51 @@
+@import '../../common/styles/variables.css';
+
+.btn {
+    display: flex;
+    cursor: pointer;
+    height: 18px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: aliceblue;
+}
+
+.primaryBtn {
+    background-color: var(--primaryBtnColor);
+}
+
+.primaryBtn:hover {
+    background-color: var(--primaryBtnHoverColor);
+}
+
+.secondaryBtn {
+    background-color:darkred;
+}
+.secondaryBtn:hover {
+    background-color: red;
+}
+
+.tertiaryBtn {
+    display: flex;
+    cursor: pointer;
+    height: 18px;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    border-radius: 6px;
+    padding: 4px 8px;
+    color: darkgrey;
+    border: 1px darkgrey solid;
+}
+.tertiaryBtn:hover {
+    color: #09f;
+    border: 1px #09f solid;
+}
+
+.disabledBtn {
+    pointer-events: none;
+    background-color: var(--primaryBtnDisabledColor);
+}
