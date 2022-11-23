@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BUTTON_TYPES } from './common/data/freekey-button';
 import FreekeyButton from './components/freekey-button';
+import FreekeyCheckbox from './components/freekey-checkbox';
 
 class App extends Component {
   constructor(props){  
@@ -41,6 +42,9 @@ class App extends Component {
           <line x1="6" y1="12" x2="3" y2="12" />
           <line x1="7.75" y1="7.75" x2="5.6" y2="5.6" />
         </svg>}
+        />
+        <FreekeyCheckbox
+          label={'Agree to terms and conditions'}
         />
       </div>
     );
