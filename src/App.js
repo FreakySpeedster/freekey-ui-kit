@@ -25,8 +25,8 @@ class App extends Component {
         <FreekeyButton 
           buttonClick={this.handleClick} 
           type={BUTTON_TYPES.PRIMARY} 
-          text={'Delete'} 
-          inProgressText={'Deleting'} 
+          text={'Login'} 
+          inProgressText={'Logging In'} 
           isInProgress={this.state.changeProgress}
           isDisabled={false}
           iconPosition={'LEFT'}
