@@ -3,11 +3,10 @@
 .btn {
     display: flex;
     cursor: pointer;
-    height: 18px;
     justify-content: center;
     align-items: center;
     border: none;
-    padding: 4px 8px;
+    padding: 6px 11px;
     border-radius: 6px;
     font-size: 13px;
     color: aliceblue;
@@ -45,7 +44,7 @@
     border: 1px #09f solid;
 }
 
-.disabledBtn {
+.btn[disabled] {
     pointer-events: none;
     background-color: var(--primaryBtnDisabledColor);
 }

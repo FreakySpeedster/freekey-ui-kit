@@ -14,15 +14,15 @@ const FreekeyButton = (props) => {
                 return 'tertiaryBtn';
         } 
     }
-    const getDisabledClass = () => {
-        return isInProgress || isDisabled ? 'disabledBtn' : '';
+    const getBtnDisabledState = () => {
+        return isInProgress || isDisabled ? true : false;
     }
     return (
-        <div className={`${getButtonClass()} ${getDisabledClass()}`} onClick={props.buttonClick} >
+        <button className={`${getButtonClass()}`} disabled={getBtnDisabledState()} onClick={props.buttonClick} >
             {icon && iconPosition === 'LEFT' && icon}
             {isInProgress ? inProgressText : text}
             {icon && iconPosition === 'RIGHT' && icon}
-        </div>
+        </button>
     );
 }
 
