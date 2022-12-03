@@ -12,3 +12,8 @@
   background-color: var(--background);
   font-family: 'Open Sans', sans-serif;
 }
+
+.adjust-size {
+  width: 300px;
+  height: 100px;
+}

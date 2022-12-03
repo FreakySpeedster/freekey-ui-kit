@@ -45,6 +45,8 @@ class App extends Component {
         />
         <FreekeyCheckbox
           label={'Agree to terms and conditions'}
+          isDisabled={true}
+          isChecked={true}
         />
       </div>
     );
