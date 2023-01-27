@@ -3,6 +3,7 @@ import './App.css';
 import { BUTTON_TYPES } from './common/data/freekey-button';
 import FreekeyButton from './components/freekey-button';
 import FreekeyCheckbox from './components/freekey-checkbox';
+import FreekeyTextbox from './components/freekey-textbox';
 
 class App extends Component {
   constructor(props){  
@@ -47,6 +48,13 @@ class App extends Component {
           label={'Agree to terms and conditions'}
           isDisabled={true}
           isChecked={true}
+        />
+        <FreekeyTextbox 
+          primaryLabel={'Name'}
+          isDisabled={false}
+          isError={true}
+          errorText={'Invalid Input'}
+          placeholder={'Enter Full Name'}
         />
       </div>
     );

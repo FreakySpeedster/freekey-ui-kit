@@ -1,0 +1,81 @@
+@import '../../common/styles/variables.css';
+
+.textbox-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 5px;
+    width: 250px;
+    height: 82px;
+}
+
+.labels-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 13px;
+    align-items: center;
+    padding: 0px 5px;
+    gap: 10px;
+    width: 240px;
+    height: 16px;
+}
+
+.textbox {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px;
+    gap: 5px;
+    width: 250px;
+    height: 38px;
+    background: #FFFFFF;
+    border: 1px solid #909090;
+    border-radius: 8px;
+}
+
+.textbox:focus-visible {
+    outline: none;
+    border: 2px solid #DECFFA;
+}
+
+.textbox-error {
+    border: 2px solid #D64751;
+    padding-right: 13%;
+}
+
+.error-text {
+    color: #D64751;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px 5px;
+    gap: 10px;
+    width: 240px;
+    height: 12px;
+    font-size: 12px;
+}
+
+.input-wrapper {
+    display:inline-block;
+    position: relative
+}
+i {
+    width: 18px;
+    height: 18px;
+    content: url('../../assets/info-circle.svg');
+    position: absolute;
+    right: 12px;
+    top: 10px;
+}
+
+.primary-label {
+    color: black;
+}
+
+.secondary-label {
+    color: #909090;
+}
