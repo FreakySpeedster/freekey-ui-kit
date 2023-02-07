@@ -46,14 +46,14 @@ class App extends Component {
         />
         <FreekeyCheckbox
           label={'Agree to terms and conditions'}
-          isDisabled={true}
+          isDisabled={false}
           isChecked={true}
         />
         <FreekeyTextbox 
           primaryLabel={'Name'}
           isDisabled={false}
-          isError={true}
-          errorText={'Invalid Input'}
+          isError={false}
+          errorText={''}
           placeholder={'Enter Full Name'}
         />
       </div>
