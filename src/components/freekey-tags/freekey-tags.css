@@ -1,0 +1,48 @@
+@import '../../common/styles/variables.css';
+
+
+.tag-capsule {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: var(--text-background-color);
+    color: var(--text-color);
+    padding: 4px;
+    margin-right: 4px;
+    border-radius: 12px;
+    font-size: var(--default-font-size);
+}
+
+.tag-capsule svg :hover {
+    color: var(--primaryBtnHoverColor);
+}
+
+svg {
+    fill: currentColor;
+}
+
+.tags-group {
+    display: flex;
+    gap: 5px;
+}
+
+.tags-input {
+    border: 1px solid #909090;;
+    background: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.tags-input:focus-within {
+    outline: none;
+    border: 2px solid #DECFFA;
+}   
+
+.active-tags-input {
+    outline: none;
+    border: none;
+  }
