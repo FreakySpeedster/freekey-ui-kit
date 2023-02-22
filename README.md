@@ -4,10 +4,10 @@
 1. Button
 2. Checkbox
 3. Textbox
+4. Tags
 
 ## Upcoming Components
 Number 
-Tags
 Dropdown
 Breadcrumbs
 Pagination
