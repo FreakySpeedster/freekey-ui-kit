@@ -6,6 +6,8 @@ import FreekeyCheckbox from './components/freekey-checkbox';
 import FreekeyTags from './components/freekey-tags';
 import FreekeyTextbox from './components/freekey-textbox';
 import FreekeyTagsInput from './components/freekey-tags-input';
+import FreekeySearch from './components/freekey-search';
+import FreekeyDropdown from './components/freekey-dropdown';
 
 class App extends Component {
   constructor(props){  
@@ -61,6 +63,8 @@ class App extends Component {
         <FreekeyTags tags={[{id: 1, name: 'Wow'}, {id: 2, name: 'Excellent'}, {id: 3, name: 'Marvellous'}, {id: 4, name: 'Awesome'}]} 
         containerClass={'adjust-size'} valuePath={'name'}/>
         <FreekeyTagsInput />
+        <FreekeySearch />
+        <FreekeyDropdown />
       </div>
     );
   }
