@@ -7,5 +7,8 @@
     --primaryBtnColor-dark: #292929;
     --primaryBtnHoverColor-dark: #646464;
     --primaryBtnPressed-dark: #0F0324;
+    --default-font-size: 13px;
+    --text-background-color: #E9DFFC;
+    --text-color: #784dc7;
 
 }
