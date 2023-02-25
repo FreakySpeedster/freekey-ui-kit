@@ -4,11 +4,13 @@
 1. Button
 2. Checkbox
 3. Textbox
-4. Tags
+4. Tags-input
+5. Tags
+6. Dropdown
 
 ## Upcoming Components
-Number 
-Dropdown
+Search
+Number
 Breadcrumbs
 Pagination
 Card
