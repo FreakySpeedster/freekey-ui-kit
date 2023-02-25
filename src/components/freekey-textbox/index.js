@@ -10,7 +10,7 @@ const FreekeyTextbox = (props) => {
                 {secondaryLabel && <label className="secondary-label">{secondaryLabel}</label>}
             </div>
             <div className="input-wrapper">
-                <input className={`textbox ${isError && 'textbox-error'} ${isDisabled && 'mod--disabled'}`} type='text' placeholder={placeholder} disabled={isDisabled} />
+                <input className={`textbox ${isError && 'textbox-error'} ${isDisabled && 'mod-disabled'}`} type='text' placeholder={placeholder} disabled={isDisabled} />
                 {isError && <i class="icon"></i>}
             </div>
             <div className="error-text">{errorText}</div>

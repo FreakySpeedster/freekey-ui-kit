@@ -64,7 +64,12 @@ class App extends Component {
         containerClass={'adjust-size'} valuePath={'name'}/>
         <FreekeyTagsInput />
         <FreekeySearch />
-        <FreekeyDropdown />
+        <FreekeyDropdown isError={false} errorText={'Invalid Selection'} isDisabled={true} placeholder={'Search City'} options={[
+                { value: 'default', label: '-----'},
+                { value: 'apple', label: 'Apple' },
+                { value: 'banana', label: 'Banana' },
+                { value: 'orange', label: 'Orange' },
+              ]}/>
       </div>
     );
   }
