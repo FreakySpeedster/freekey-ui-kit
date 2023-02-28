@@ -90,3 +90,13 @@
 .mod-dropdown-disabled {
     background: var(--field-disabled-color);
 }
+
+.selected {
+    background: var(--primaryBtnColor);
+    color: white;
+}
+
+.selected-icon {
+    position: absolute;
+    right: 5px;
+}
