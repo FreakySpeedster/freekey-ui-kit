@@ -1,0 +1,36 @@
+@import '../../common/styles/variables.css';
+
+.spinner-box {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+  }
+
+.circle-border {
+    width: 80px;
+    height: 80px;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgb(63,249,220);
+    background: linear-gradient(0deg, #e4d4ff1a 33%, var(--primaryBtnColor) 100%);
+    animation: spin .8s linear 0s infinite;
+}
+
+.circle-core {
+    width: 90%;
+    height: 90%;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
