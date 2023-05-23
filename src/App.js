@@ -9,6 +9,7 @@ import FreekeyTagsInput from './components/freekey-tags-input';
 import FreekeySearch from './components/freekey-search';
 import FreekeyDropdown from './components/freekey-dropdown';
 import FreekeyLoader from './components/freekey-loader';
+import FreekeyLoaderV2 from './components/freekey-loader-v2';
 
 class App extends Component {
   constructor(props){  
@@ -73,6 +74,7 @@ class App extends Component {
               ]}
         />
         <FreekeyLoader/>
+        <FreekeyLoaderV2/>
       </div>
     );
   }
