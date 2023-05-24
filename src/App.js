@@ -10,6 +10,7 @@ import FreekeySearch from './components/freekey-search';
 import FreekeyDropdown from './components/freekey-dropdown';
 import FreekeyLoader from './components/freekey-loader';
 import FreekeyLoaderV2 from './components/freekey-loader-v2';
+import FreekeyNumberbox from './components/freekey-numberbox';
 
 class App extends Component {
   constructor(props){  
@@ -75,6 +76,13 @@ class App extends Component {
         />
         <FreekeyLoader/>
         <FreekeyLoaderV2/>
+        <FreekeyNumberbox
+          primaryLabel={'Quantity'}
+          isDisabled={false}
+          isError={true}
+          errorText={''}
+          placeholder={'Enter Quantity'}
+        />
       </div>
     );
   }
