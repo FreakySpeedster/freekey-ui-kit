@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BUTTON_TYPES } from './common/data/freekey-button';
-import FreekeyButton from './components/freekey-button';
-import FreekeyCheckbox from './components/freekey-checkbox';
+import Button from './components/button';
+import Checkbox from './components/checkbox';
 import FreekeyTags from './components/freekey-tags';
 import FreekeyTextbox from './components/freekey-textbox';
 import FreekeyTagsInput from './components/freekey-tags-input';
@@ -31,7 +31,7 @@ class App extends Component {
     return (
       <div className='app'>
         {/* To test Button Component remove in future */}
-        <FreekeyButton 
+        <Button 
           buttonClick={this.handleClick} 
           type={BUTTON_TYPES.PRIMARY} 
           text={'Login'} 
@@ -51,7 +51,7 @@ class App extends Component {
           <line x1="7.75" y1="7.75" x2="5.6" y2="5.6" />
         </svg>}
         />
-        <FreekeyCheckbox
+        <Checkbox
           label={'Agree to terms and conditions'}
           isDisabled={false}
           isChecked={true}

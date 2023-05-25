@@ -1,20 +1,20 @@
 import React from 'react';
 
-import FreekeyDropdown from '.';
+import Dropdown from '.';
 
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'UiKit/FreekeyDropdown',
-  component: FreekeyDropdown,
+  title: 'UiKit/Dropdown',
+  component: Dropdown,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <FreekeyDropdown {...args} />;
+const Template = (args) => <Dropdown {...args} />;
 
-export const Dropdown = Template.bind({});
-Dropdown.args = {
+export const SingleSelect = Template.bind({});
+SingleSelect.args = {
     isError: false,
     errorText: 'Invalid Selection',
     isDisabled: false,

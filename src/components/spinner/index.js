@@ -1,7 +1,7 @@
 import React from 'react';
-import '../freekey-loader/freekey-loader.css';
+import '../spinner/freekey-loader.css';
 
-const FreekeyLoader = (props) => {
+const Spinner = (props) => {
     return (
         <div class="spinner-box">
             <div class="circle-border">
@@ -10,4 +10,4 @@ const FreekeyLoader = (props) => {
         </div>
     );
 }
-export default FreekeyLoader;
+export default Spinner;

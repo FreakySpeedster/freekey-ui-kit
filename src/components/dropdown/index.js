@@ -3,7 +3,7 @@ import './freekey-dropdown.css';
 
 const noResults ={value: '', label: 'No results found'};
 
-const FreekeyDropdown = (props) => {
+const Dropdown = (props) => {
   const { errorText, isError, isDisabled, placeholder, options } = props;
   const [selectedOption, setSelectedOption] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -84,4 +84,4 @@ const FreekeyDropdown = (props) => {
   );
 }
 
-export default FreekeyDropdown;
+export default Dropdown;

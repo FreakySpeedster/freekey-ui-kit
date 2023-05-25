@@ -1,12 +1,12 @@
 import React from 'react';
 
-import FreekeyLoader from '.';
+import Checkbox from '.';
 
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'UiKit/FreekeyLoader',
-  component: FreekeyLoader,
+  title: 'UiKit/Checkbox',
+  component: Checkbox,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -14,9 +14,12 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <FreekeyLoader />;
+const Template = (args) => <Checkbox {...args} />;
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
+    label: 'Agree to terms and conditions',
+    isDisabled: false,
+    isChecked: true,
 };

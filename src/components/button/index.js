@@ -1,8 +1,8 @@
 import React from 'react';
-import { BUTTON_TYPES } from '../../common/data/freekey-button';
+import { BUTTON_TYPES } from '../../common/data/button';
 import './freekey-button.css';
 
-const FreekeyButton = (props) => {
+const Button = (props) => {
     const { type, text, isInProgress, inProgressText, icon, iconPosition, isDisabled } = props;
     const getButtonClass = () => {
         switch (type) {
@@ -25,4 +25,4 @@ const FreekeyButton = (props) => {
         </button>
     );
 }
-export default FreekeyButton;
+export default Button;

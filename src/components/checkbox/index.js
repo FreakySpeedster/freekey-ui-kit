@@ -2,7 +2,7 @@ import React from 'react';
 import './freekey-checkbox.css';
 
 
-const FreekeyCheckbox = (props) => {
+const Checkbox = (props) => {
     const { label,  isDisabled, isChecked } = props;
     const [checked, setChecked] = React.useState(isChecked);
 
@@ -18,4 +18,4 @@ const FreekeyCheckbox = (props) => {
         </div>
     );
 }
-export default FreekeyCheckbox;
+export default Checkbox;
