@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BUTTON_TYPES } from './common/data/freekey-button';
+import { BUTTON_TYPES } from './common/data/button';
 import Button from './components/button';
 import Checkbox from './components/checkbox';
-import FreekeyTags from './components/freekey-tags';
-import FreekeyTextbox from './components/freekey-textbox';
-import FreekeyTagsInput from './components/freekey-tags-input';
+import Tags from './components/tags';
+import TextInput from './components/text-input';
+import TagsInput from './components/tags-input';
 import FreekeySearch from './components/freekey-search';
-import FreekeyDropdown from './components/freekey-dropdown';
-import FreekeyLoader from './components/freekey-loader';
-import FreekeyLoaderV2 from './components/freekey-loader-v2';
-import FreekeyNumberbox from './components/freekey-numberbox';
+import Dropdown from './components/dropdown';
+import Spinner from './components/spinner';
+import LoadingAnimation from './components/loading-animation';
+import NumberInput from './components/number-input';
 
 class App extends Component {
   constructor(props){  
@@ -56,27 +56,27 @@ class App extends Component {
           isDisabled={false}
           isChecked={true}
         />
-        <FreekeyTextbox 
+        <TextInput 
           primaryLabel={'Name'}
           isDisabled={false}
           isError={false}
           errorText={''}
           placeholder={'Enter Full Name'}
         />
-        <FreekeyTags tags={[{id: 1, name: 'Wow'}, {id: 2, name: 'Excellent'}, {id: 3, name: 'Marvellous'}, {id: 4, name: 'Awesome'}]} 
+        <Tags tags={[{id: 1, name: 'Wow'}, {id: 2, name: 'Excellent'}, {id: 3, name: 'Marvellous'}, {id: 4, name: 'Awesome'}]} 
         containerClass={'adjust-size'} valuePath={'name'}/>
-        <FreekeyTagsInput />
+        <TagsInput />
         <FreekeySearch />
-        <FreekeyDropdown isError={false} errorText={'Invalid Selection'} isDisabled={false} placeholder={'Search City'} options={[
+        <Dropdown isError={false} errorText={'Invalid Selection'} isDisabled={false} placeholder={'Search City'} options={[
                 { value: 'default', label: '-----'},
                 { value: 'apple', label: 'Apple' },
                 { value: 'banana', label: 'Banana' },
                 { value: 'orange', label: 'Orange' },
               ]}
         />
-        <FreekeyLoader/>
-        <FreekeyLoaderV2/>
-        <FreekeyNumberbox
+        <Spinner/>
+        <LoadingAnimation/>
+        <NumberInput
           primaryLabel={'Quantity'}
           isDisabled={false}
           isError={true}
