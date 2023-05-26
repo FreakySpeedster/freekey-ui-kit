@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import TagCapsule from '../tag-capsule';
-import '../freekey-tags/freekey-tags.css';
+import '../tags/freekey-tags.css';
 
-const FreekeyTagsInput = (props) => {
+const TagsInput = (props) => {
     const { containerClass } = props;
     const [ tags, setTags ] = useState([]);
     const [ inputValue, setInputValue ] = useState('');
 
     const handleKeyUp = (event) => {
         if (event.key === 'Enter') {
-            if (!tags.includes(inputValue) && inputValue!='') {
+            if (!tags.includes(inputValue) && inputValue!=='') {
                 setTags([...tags, inputValue]);
                 setInputValue('');
             }
@@ -32,4 +32,4 @@ const FreekeyTagsInput = (props) => {
         </div>
     );
 }
-export default FreekeyTagsInput;
+export default TagsInput;

@@ -1,7 +1,7 @@
 import React from 'react';
-import '../freekey-loader-v2/freekey-loader-v2.css';
+import '../loading-animation/freekey-loader-v2.css';
 
-const FreekeyLoaderV2 = (props) => {
+const LoadingAnimation = (props) => {
     return (
         <div class="spinner-box-v2">
             <div class="configure-border-1">
@@ -13,4 +13,4 @@ const FreekeyLoaderV2 = (props) => {
         </div>
     );
 }
-export default FreekeyLoaderV2;
+export default LoadingAnimation;

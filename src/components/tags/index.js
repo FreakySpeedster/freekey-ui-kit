@@ -2,7 +2,7 @@ import React from 'react';
 import TagCapsule from '../tag-capsule';
 import './freekey-tags.css';
 
-const FreekeyTags = (props) => {
+const Tags = (props) => {
     const { tags, containerClass, showCloseIcon, valuePath, clearTag } = props;
     const tagName = (tag) => {
         return valuePath ? tag[valuePath] : tag;
@@ -17,4 +17,4 @@ const FreekeyTags = (props) => {
         </div>
     );
 }
-export default FreekeyTags;
+export default Tags;

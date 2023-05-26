@@ -1,5 +1,5 @@
 import React from 'react';
-import '../freekey-tags/freekey-tags.css';
+import '../tags/freekey-tags.css';
 
 const TagCapsule = (props) => {
     const { text, showCloseIcon, iconPosition, clearTag } = props;

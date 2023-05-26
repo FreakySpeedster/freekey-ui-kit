@@ -1,7 +1,7 @@
 import React from 'react';
-import '../freekey-textbox/freekey-textbox.css';
+import '../text-input/freekey-text-input.css';
 
-const FreekeyNumberbox = (props) => {
+const NumberInput = (props) => {
     const { primaryLabel, secondaryLabel, errorText, isError, isDisabled, placeholder } = props;
     return (
         <div className="textbox-container">
@@ -17,4 +17,4 @@ const FreekeyNumberbox = (props) => {
         </div>
     );
 }
-export default FreekeyNumberbox;
+export default NumberInput;
