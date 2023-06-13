@@ -1,0 +1,6 @@
+@import '../../common/styles/variables.css';
+
+.avatar-size {
+    width: 40px;
+    height: 40px;
+}
