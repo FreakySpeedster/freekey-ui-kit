@@ -7,11 +7,18 @@ import './freekey-avatar.css';
 
 const Avatar = (props) => {
     const { gender, age } = props;
+    const getDarkColor = () => {
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += Math.floor(Math.random() * 10);
+        }
+        return color;
+    }
     return (
     <div className="avatar-size">
         {gender === 'MALE' ?  
-            age < 25 ? <AvatarBoy /> : <AvatarMan /> : 
-            age < 25 ? <AvatarGirl /> : <AvatarWoman />}
+            age < 25 ? <AvatarBoy style={{color: getDarkColor()}}/> : <AvatarMan style={{color: getDarkColor()}}/> : 
+            age < 25 ? <AvatarGirl style={{color: getDarkColor()}}/> : <AvatarWoman style={{color: getDarkColor()}}/>}
     </div>);
 }
 
