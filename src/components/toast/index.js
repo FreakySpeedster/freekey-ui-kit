@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import './freekey-toast.css';
 
 const Toast = ({ message, duration }) => {
   const [visible, setVisible] = useState(true);
+  const [close, setClose] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setVisible(false);
+      setClose(true);
+      setTimeout(() => {
+        setVisible(false);
+      }, 500)
     }, duration);
 
     return () => {
@@ -17,19 +22,7 @@ const Toast = ({ message, duration }) => {
   return (
     <div>
       {visible && (
-        <div
-        style={{
-            position: 'fixed',
-            top: '20px',
-            right: '20px',
-            padding: '12px',
-            background: '#925FF0',
-            color: '#FFFFFF',
-            borderRadius: '4px',
-            boxShadow: '0px 10px 10px 1px rgba(0, 0, 0, 0.2)',
-            zIndex: 9999,
-          }}
-        >
+        <div className={`toast-box ${close && 'close-toast'}`}>
           {message}
         </div>
       )}
