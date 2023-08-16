@@ -15,7 +15,7 @@ yarn storybook
 6. Dropdown
 7. Simple Loading Animation
 8. Fancy Loading Animation
-9. Number box
+9. Number input
 10. Toast
 11. Avatar
 
@@ -31,9 +31,8 @@ yarn storybook
  9. Badge
  10. Tooltip
  11. Table
- 12. Toast
- 13. Modal
- 14. Loading Skeleton
+ 12. Modal
+ 13. Loading Skeleton
   and many more ..
 
 All the components are being built as React Functional Components.

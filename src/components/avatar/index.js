@@ -6,20 +6,36 @@ import { ReactComponent as AvatarWoman } from '../../assets/avatar-woman.svg';
 import './freekey-avatar.css';
 
 const Avatar = (props) => {
-    const { gender, age } = props;
+    const { gender, age, color, showInitials, name } = props;
     const getDarkColor = () => {
-        var color = '#';
-        for (var i = 0; i < 6; i++) {
-            color += Math.floor(Math.random() * 10);
+        if (color) {
+            return color;
         }
-        return color;
+        var newColor = '#';
+        for (var i = 0; i < 6; i++) {
+            newColor += Math.floor(Math.random() * 10);
+        }
+        return newColor;
     }
+    const getInitialsFromName = () => {
+        var initials = name.match(/\b\w/g) || [];
+        initials = ((initials.shift() || '') + (initials.pop() || '')).toUpperCase();
+        return initials;
+    }
+
     return (
-    <div className="avatar-size">
-        {gender === 'MALE' ?  
-            age < 25 ? <AvatarBoy style={{color: getDarkColor()}}/> : <AvatarMan style={{color: getDarkColor()}}/> : 
-            age < 25 ? <AvatarGirl style={{color: getDarkColor()}}/> : <AvatarWoman style={{color: getDarkColor()}}/>}
-    </div>);
+    <>
+        {showInitials ? 
+            (<div className='avatar-initial-container'>
+                <div style={{backgroundColor: getDarkColor()}} className="avatar-initials">{getInitialsFromName()}</div>
+            </div>) :
+        (<div className="avatar-size">
+            {gender && (gender === 'MALE' ?  
+                age < 25 ? <AvatarBoy style={{color: getDarkColor()}}/> : <AvatarMan style={{color: getDarkColor()}}/> : 
+                age < 25 ? <AvatarGirl style={{color: getDarkColor()}}/> : <AvatarWoman style={{color: getDarkColor()}}/>)}
+        </div>)}
+    </>
+    );
 }
 
 export default Avatar;

@@ -85,7 +85,7 @@ class App extends Component {
           errorText={''}
           placeholder={'Enter Quantity'}
         />
-        <Avatar gender={'FEMALE'} age={10}/>
+        <Avatar name={'John Doe'} showInitials={true}/>
         
         {this.state.showToast && <Toast message={"This is a toast message!"} duration={3000} />}
       </div>
