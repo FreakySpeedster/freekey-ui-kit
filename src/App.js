@@ -11,19 +11,21 @@ import Dropdown from './components/dropdown';
 import Spinner from './components/spinner';
 import LoadingAnimation from './components/loading-animation';
 import NumberInput from './components/number-input';
+import Avatar from './components/avatar';
+import Toast from './components/toast'
 
 class App extends Component {
   constructor(props){  
     super(props);  
-    this.state = {changeProgress : false}
+    this.state = {changeProgress : false, showToast: false}
     this.handleClick = this.handleClick.bind(this);  
   }
   handleClick() {
     console.log('Something');
-    this.setState({changeProgress : true});
+    this.setState({changeProgress : true, showToast: true});
     setTimeout(function(state){
       console.log('Inside wait function.. waits for request');
-      this.setState({changeProgress : false});
+      this.setState({changeProgress : false, showToast: false});
     }.bind(this), 5000);
     
   }
@@ -83,6 +85,9 @@ class App extends Component {
           errorText={''}
           placeholder={'Enter Quantity'}
         />
+        <Avatar gender={'FEMALE'} age={10}/>
+        
+        {this.state.showToast && <Toast message={"This is a toast message!"} duration={3000} />}
       </div>
     );
   }
