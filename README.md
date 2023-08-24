@@ -21,6 +21,7 @@ yarn storybook
 9. Number input
 10. Toast
 11. Avatar
+12. Slider
 
 ## Upcoming Components
  1. Search
@@ -30,7 +31,7 @@ yarn storybook
  5. Rating
  6. Toggle
  7. Navigation Bar
- 8. Slider
+ 8. Dual Range Slider
  9. Badge
  10. Tooltip
  11. Table
