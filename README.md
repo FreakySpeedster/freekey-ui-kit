@@ -1,4 +1,7 @@
 # Freekey UI Kit
+Setup:
+Clone and yarn
+
 To run development server: 
 npm start
 

@@ -12,7 +12,9 @@ import Spinner from './components/spinner';
 import LoadingAnimation from './components/loading-animation';
 import NumberInput from './components/number-input';
 import Avatar from './components/avatar';
-import Toast from './components/toast'
+import Toast from './components/toast';
+import Slider from './components/slider';
+import Tooltip from './components/tooltip';
 
 class App extends Component {
   constructor(props){  
@@ -86,6 +88,8 @@ class App extends Component {
           placeholder={'Enter Quantity'}
         />
         <Avatar name={'John Doe'} showInitials={true}/>
+        <Slider min={0} max={100} label={'Select the quantity'}/>
+        <Tooltip text={'Hover me'} tooltipText={'This is a tooltip'} position={'TOP'}/>
         
         {this.state.showToast && <Toast message={"This is a toast message!"} duration={3000} />}
       </div>
