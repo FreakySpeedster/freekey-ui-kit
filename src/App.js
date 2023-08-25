@@ -15,6 +15,7 @@ import Avatar from './components/avatar';
 import Toast from './components/toast';
 import Slider from './components/slider';
 import Tooltip from './components/tooltip';
+import NavigationBar from './components/navigation-bar';
 
 class App extends Component {
   constructor(props){  
@@ -35,6 +36,7 @@ class App extends Component {
     return (
       <div className='app'>
         {/* To test Button Component remove in future */}
+        <NavigationBar logo={'https://www.freekeyapp.com/assets/images/logo.png'} menuItem1={'Home'} menuItem2={'About'} menuItem3={'Contact'} menuItem4={'Blog'} menuItem5={'Login'} />
         <Button 
           buttonClick={this.handleClick} 
           type={BUTTON_TYPES.PRIMARY} 

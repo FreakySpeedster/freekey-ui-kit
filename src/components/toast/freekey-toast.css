@@ -2,7 +2,7 @@
 
 .toast-box {
     position: fixed;
-    top: 20px;
+    top: 80px;
     right: 20px;
     padding: 12px;
     background: #925FF0;
@@ -20,7 +20,7 @@
 
 @keyframes slideInDown {
     from { top: -100px; opacity: 0; }
-    to { top: 20px; opacity: 1; }
+    to { top: 80px; opacity: 1; }
 }
 
 @keyframes slideOutRight {
