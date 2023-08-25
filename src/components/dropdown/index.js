@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './freekey-dropdown.css';
 
 const noResults ={value: '', label: 'No results found'};
@@ -9,6 +9,7 @@ const Dropdown = (props) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [canShowOptions, setCanShowOptions] = useState(false);
   const [animatorClass, setAnimatorClass ] = useState('');
+  const dropDownRef = useRef(null);
 
   const handleOptionClick = (option) => {
     let newValue = option;
@@ -65,13 +66,14 @@ const Dropdown = (props) => {
             onChange={handleSearchChange} 
             value={searchTerm} 
             disabled={isDisabled}
+            onBlur={(event) => !dropDownRef.current.contains(event.relatedTarget) && setCanShowOptions(false)}
           />
           <i class={`dropdown-icon ${animatorClass}`}></i>
           {isError && <div className="dropdown-input_error-text">{errorText}</div>}
         </div>
-        {canShowOptions && <div className="dropdown-options">
+        {canShowOptions && <div className="dropdown-options" ref={dropDownRef}>
           {filteredOptions.length > 0 && filteredOptions.map((option) => (
-            <div className={`option ${isSelectedOption(option) && 'selected'}`} key={option.value} value={option.value} onClick={() => handleOptionClick(option)}>
+            <div className={`option ${isSelectedOption(option) && 'selected'}`} key={option.value} value={option.value} onClick={() => handleOptionClick(option)} tabIndex={-1}>
               {option.label} {isSelectedOption(option) && <SelectedSvg/>}
             </div>
           ))}
