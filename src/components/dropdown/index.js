@@ -18,8 +18,12 @@ const Dropdown = (props) => {
   ) : [];
 
   useEffect(() => {
-    setCurrentListItemPosition(-1);
+    !selectedOption && setCurrentListItemPosition(-1);
   }, [canShowOptions]);
+
+  useEffect(() => {
+      setCurrentListItemPosition(filteredOptions.indexOf(selectedOption))
+  }, [searchTerm, selectedOption]);
 
   useEffect(() => {
     listItemsRef.current = listItemsRef.current.slice(0, filteredOptions.length);
