@@ -16,7 +16,7 @@
 
 .dropdown-input:focus-visible {
     outline: none;
-    border: 2px solid #DECFFA;
+    border: 1px solid #DECFFA;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
 }
