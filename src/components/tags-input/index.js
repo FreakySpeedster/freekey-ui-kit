@@ -13,6 +13,10 @@ const TagsInput = (props) => {
                 setTags([...tags, inputValue]);
                 setInputValue('');
             }
+        } else if (event.key === 'Backspace') {
+            if (inputValue === '') {
+                tags.length && removeTag(tags[tags.length - 1]);
+            }
         }
     }
 
