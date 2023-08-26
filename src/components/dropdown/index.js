@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import './freekey-dropdown.css';
 
 const noResults ={value: '', label: 'No results found'};
@@ -13,13 +13,14 @@ const Dropdown = (props) => {
   const [currentListItemPosition, setCurrentListItemPosition] = useState(-1);
   const listItemsRef = useRef([]);
 
-  const filteredOptions = options ? options.filter((option) =>
-    option.label.toLowerCase().includes(searchTerm.toLowerCase())
-  ) : [];
+  const filteredOptions = useMemo(
+    () => options ? options.filter((option) => option.label.toLowerCase().includes(searchTerm.toLowerCase())) : [], 
+    [options, searchTerm]
+  );
 
   useEffect(() => {
     selectedOption ? setCurrentListItemPosition(filteredOptions.indexOf(selectedOption)) : setCurrentListItemPosition(-1);
-  }, [canShowOptions, searchTerm, selectedOption]);
+  }, [canShowOptions, searchTerm, selectedOption, filteredOptions]);
 
   useEffect(() => {
     listItemsRef.current = listItemsRef.current.slice(0, filteredOptions.length);
@@ -71,6 +72,7 @@ const Dropdown = (props) => {
         const currentListItemRef = listItemsRef.current[currentListItemPosition];
         currentListItemRef.focus();
         currentListItemRef.click();
+        break;
       case 'Escape':
         setCanShowOptions(false);
         break;
@@ -80,6 +82,7 @@ const Dropdown = (props) => {
       case 'ArrowDown':
         currentListItemPosition < filteredOptions.length - 1 && setCurrentListItemPosition(currentListItemPosition => currentListItemPosition + 1);
         break;
+      default:
     }
   }
 
