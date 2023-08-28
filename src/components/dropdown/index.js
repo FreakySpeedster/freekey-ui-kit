@@ -67,6 +67,7 @@ const Dropdown = (props) => {
   )
 
   const handleKeyEvents = (event) => {
+    const listItemsLength = filteredOptions.length;
     switch (event.key) {
       case 'Enter':
         const currentListItemRef = listItemsRef.current[currentListItemPosition];
@@ -77,10 +78,14 @@ const Dropdown = (props) => {
         setCanShowOptions(false);
         break;
       case 'ArrowUp':
+        currentListItemPosition === 0 ? 
+        setCurrentListItemPosition(listItemsLength - 1) : 
         currentListItemPosition > 0 && setCurrentListItemPosition(currentListItemPosition => currentListItemPosition - 1);
         break;
       case 'ArrowDown':
-        currentListItemPosition < filteredOptions.length - 1 && setCurrentListItemPosition(currentListItemPosition => currentListItemPosition + 1);
+        currentListItemPosition === listItemsLength - 1 ? 
+        setCurrentListItemPosition(0) : 
+        currentListItemPosition < listItemsLength - 1 && setCurrentListItemPosition(currentListItemPosition => currentListItemPosition + 1);
         break;
       default:
     }
@@ -110,7 +115,10 @@ const Dropdown = (props) => {
               className={`option ${isSelectedOption(option) && 'selected'} ${currentListItemPosition === index && 'active'}`} 
               key={option.value} value={option.value} 
               onClick={() => handleOptionClick(option)}
-              tabIndex={-1}>
+              tabIndex={-1}
+              onMouseOver={() => setCurrentListItemPosition(index)}
+              onMouseOut={() => canShowOptions ? setCurrentListItemPosition(filteredOptions.indexOf(selectedOption)) : setCurrentListItemPosition(-1)}
+            >
                 {option.label} {isSelectedOption(option) && <SelectedSvg/>}
             </div>
           ))}
