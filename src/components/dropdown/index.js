@@ -18,6 +18,11 @@ const Dropdown = (props) => {
     [options, searchTerm]
   );
 
+  //revert the cleared search value to the selected option label when the dropdown is closed
+  useEffect(() => {
+    !canShowOptions && setSearchTerm(selectedOption?.label || '');
+  }, [canShowOptions, selectedOption]);
+
   useEffect(() => {
     selectedOption ? setCurrentListItemPosition(filteredOptions.indexOf(selectedOption)) : setCurrentListItemPosition(-1);
   }, [canShowOptions, searchTerm, selectedOption, filteredOptions]);
