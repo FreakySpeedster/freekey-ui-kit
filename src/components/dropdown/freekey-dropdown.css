@@ -83,7 +83,7 @@
     padding: 4px 14px;
 }
 
-.option:hover {
+.option.active:not(.selected) {
     background-color: var(--text-background-color);
 }
 

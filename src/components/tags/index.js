@@ -11,7 +11,7 @@ const Tags = (props) => {
     return (
         <div className={`${containerClass ? containerClass : ''}`}>
             {tags.map((tag)=> {
-                return <TagCapsule key={tag} text={tagName(tag)} showCloseIcon={showCloseIcon} clearTag={() => clearTag(tag)}/>
+                return <TagCapsule key={tag.id} text={tagName(tag)} showCloseIcon={showCloseIcon} clearTag={() => clearTag(tag)}/>
                 }
             )}
         </div>

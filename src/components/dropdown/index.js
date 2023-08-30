@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import './freekey-dropdown.css';
 
 const noResults ={value: '', label: 'No results found'};
@@ -9,6 +9,27 @@ const Dropdown = (props) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [canShowOptions, setCanShowOptions] = useState(false);
   const [animatorClass, setAnimatorClass ] = useState('');
+  const dropDownRef = useRef(null);
+  const [currentListItemPosition, setCurrentListItemPosition] = useState(-1);
+  const listItemsRef = useRef([]);
+
+  const filteredOptions = useMemo(
+    () => options ? options.filter((option) => option.label.toLowerCase().includes(searchTerm.toLowerCase())) : [], 
+    [options, searchTerm]
+  );
+
+  //revert the cleared search value to the selected option label when the dropdown is closed
+  useEffect(() => {
+    !canShowOptions && setSearchTerm(selectedOption?.label || '');
+  }, [canShowOptions, selectedOption]);
+
+  useEffect(() => {
+    selectedOption ? setCurrentListItemPosition(filteredOptions.indexOf(selectedOption)) : setCurrentListItemPosition(-1);
+  }, [canShowOptions, searchTerm, selectedOption, filteredOptions]);
+
+  useEffect(() => {
+    listItemsRef.current = listItemsRef.current.slice(0, filteredOptions.length);
+  }, [filteredOptions]);
 
   const handleOptionClick = (option) => {
     let newValue = option;
@@ -20,10 +41,6 @@ const Dropdown = (props) => {
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
-
-  const filteredOptions = options ? options.filter((option) =>
-    option.label.toLowerCase().includes(searchTerm.toLowerCase())
-  ) : [];
 
   const showOptions = () => {
     setCanShowOptions(true);
@@ -54,6 +71,31 @@ const Dropdown = (props) => {
     <svg className="selected-icon" width="14px" height="14px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM16.78 9.7L11.11 15.37C10.97 15.51 10.78 15.59 10.58 15.59C10.38 15.59 10.19 15.51 10.05 15.37L7.22 12.54C6.93 12.25 6.93 11.77 7.22 11.48C7.51 11.19 7.99 11.19 8.28 11.48L10.58 13.78L15.72 8.64C16.01 8.35 16.49 8.35 16.78 8.64C17.07 8.93 17.07 9.4 16.78 9.7Z" fill="#ffffff"></path> </g></svg>
   )
 
+  const handleKeyEvents = (event) => {
+    const listItemsLength = filteredOptions.length;
+    switch (event.key) {
+      case 'Enter':
+        const currentListItemRef = listItemsRef.current[currentListItemPosition];
+        currentListItemRef.focus();
+        currentListItemRef.click();
+        break;
+      case 'Escape':
+        setCanShowOptions(false);
+        break;
+      case 'ArrowUp':
+        currentListItemPosition === 0 ? 
+        setCurrentListItemPosition(listItemsLength - 1) : 
+        currentListItemPosition > 0 && setCurrentListItemPosition(currentListItemPosition => currentListItemPosition - 1);
+        break;
+      case 'ArrowDown':
+        currentListItemPosition === listItemsLength - 1 ? 
+        setCurrentListItemPosition(0) : 
+        currentListItemPosition < listItemsLength - 1 && setCurrentListItemPosition(currentListItemPosition => currentListItemPosition + 1);
+        break;
+      default:
+    }
+  }
+
   return (
     <div>
       <div onFocus={showOptions}>
@@ -65,14 +107,24 @@ const Dropdown = (props) => {
             onChange={handleSearchChange} 
             value={searchTerm} 
             disabled={isDisabled}
+            onBlur={(event) => !dropDownRef.current.contains(event.relatedTarget) && setCanShowOptions(false)}
+            onKeyDown={handleKeyEvents}
           />
           <i class={`dropdown-icon ${animatorClass}`}></i>
           {isError && <div className="dropdown-input_error-text">{errorText}</div>}
         </div>
-        {canShowOptions && <div className="dropdown-options">
-          {filteredOptions.length > 0 && filteredOptions.map((option) => (
-            <div className={`option ${isSelectedOption(option) && 'selected'}`} key={option.value} value={option.value} onClick={() => handleOptionClick(option)}>
-              {option.label} {isSelectedOption(option) && <SelectedSvg/>}
+        {canShowOptions && <div className="dropdown-options" ref={dropDownRef}>
+          {filteredOptions.length > 0 && filteredOptions.map((option, index) => (
+            <div 
+              ref={el => listItemsRef.current[index] = el} 
+              className={`option ${isSelectedOption(option) && 'selected'} ${currentListItemPosition === index && 'active'}`} 
+              key={option.value} value={option.value} 
+              onClick={() => handleOptionClick(option)}
+              tabIndex={-1}
+              onMouseOver={() => setCurrentListItemPosition(index)}
+              onMouseOut={() => canShowOptions ? setCurrentListItemPosition(filteredOptions.indexOf(selectedOption)) : setCurrentListItemPosition(-1)}
+            >
+                {option.label} {isSelectedOption(option) && <SelectedSvg/>}
             </div>
           ))}
           {filteredOptions.length === 0 && <div className='option' key={noResults.value} value={noResults.value}>
