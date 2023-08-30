@@ -6,8 +6,28 @@ const Slider = (props) => {
   const { min, max, label } = props;
 
   const handleSliderChange = (event) => {
+    let target = event.target
+    if (event.target.type !== 'range') {
+      target = document.getElementById('range')
+    } 
+    const min = target.min
+    const max = target.max
+    const val = target.value
+    let percentage = (val - min) * 100 / (max - min)
+    
+    // condition to check whether the document has RTL direction
+    // you can move it to a variable, if document direction is dynamic
+    if (document.documentElement.dir === 'rtl') {
+      percentage = (max - val) 
+    }
+    
+    target.style.backgroundSize = percentage + '% 100%'
     setQuantity(event.target.value);
   };
+
+  // const  handleInputChange(e) {
+    
+  // }
 
   return (
     <div className='freekey-slider-container'>

@@ -13,6 +13,7 @@ const MenuOptions = (props) => {
         return () => {
           document.removeEventListener('click', handleOutsideClick);
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [canShowMenuOptions]);
 
     const handleOutsideClick = (event) => {

@@ -3,20 +3,35 @@
  input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
-    background: transparent;
+    background: #D3BFF9;
     cursor: pointer;
+    background-image: linear-gradient(#915eff, #915eff);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
     width: 15rem;
   }
 
+  [dir="rtl"] input[type="range"] {
+    /* Used to be gradient color, the current progress */
+    background: #ff4500;
+  
+    /* Used to be background color, the track */
+    background-image: linear-gradient(#fff, #fff);
+  
+    /* 30% is the difference between the max and the current value (100 - 70) */
+    background-size: 30% 100%;
+    background-repeat: no-repeat;
+  }
+
   input[type="range"]::-webkit-slider-runnable-track {
-    background: #D3BFF9;
+    background: transparent;
     border-radius: 10px;
     height: 5px;
   }
   
   /******** Firefox ********/
   input[type="range"]::-moz-range-track {
-    background: #D3BFF9;
+    background: transparent;
     border-radius: 5px;
     height: 5px;
   }
