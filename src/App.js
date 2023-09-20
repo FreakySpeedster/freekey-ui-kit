@@ -17,6 +17,50 @@ import Slider from './components/slider';
 import Tooltip from './components/tooltip';
 import NavigationBar from './components/navigation-bar';
 
+const examplePayloadFormat = {
+  logo: 'https://img.freepik.com/premium-vector/key-logo-design-template-secure-symbol_18099-4057.jpg?w=40',
+  menuItems: [
+      {
+          name: 'Home',
+          link: '/'
+      },
+      {
+          name: 'About',
+          subMenuItems: [
+              {
+                  name: 'Product 1',
+                  link: '/product1'
+              },
+              {
+                  name: 'Product 2',
+                  link: '/product2'
+              },
+          ]
+      },
+      {
+          name: 'Contact',
+          link: '/contact-us'
+      },
+      {
+          name: 'More Options',
+          subMenuItems: [
+              {
+                  name: 'Expertise',
+                  link: '/expertise'
+              },
+              {
+                  name: 'Help?',
+                  link: '/help'
+              },
+          ]
+      }
+  ],
+  user: {
+      name: 'John Doe',
+      email: 'johndoe@johndoe.com'
+  }
+}
+
 class App extends Component {
   constructor(props){  
     super(props);  
@@ -36,7 +80,7 @@ class App extends Component {
     return (
       <div className='app'>
         {/* To test Button Component remove in future */}
-        <NavigationBar logo={'https://www.freekeyapp.com/assets/images/logo.png'} menuItem1={'Home'} menuItem2={'About'} menuItem3={'Contact'} menuItem4={'Blog'} menuItem5={'Login'} />
+        <NavigationBar logo={examplePayloadFormat.logo} menuItems={examplePayloadFormat.menuItems} user={examplePayloadFormat.user}  />
         <Button 
           buttonClick={this.handleClick} 
           type={BUTTON_TYPES.PRIMARY} 
